@@ -3,9 +3,9 @@ namespace RoleplayGame
 {
     public class Character: ICharacter
     {
-        private int health = 100;
+        protected int health = 100;
 
-        private List<IItem> items = new List<IItem>();
+        protected List<IItem> items = new List<IItem>();
 
         public Character(string name)
         {
