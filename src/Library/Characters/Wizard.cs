@@ -6,7 +6,7 @@ namespace RoleplayGame
         private List<IMagicalItem> magicalItems = new List<IMagicalItem>();
         private int value;
 
-        public Wizard(string name)
+        public Wizard(string name): base(name)
         {
             this.AddItem(new Staff());
         }
