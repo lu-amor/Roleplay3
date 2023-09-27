@@ -1,6 +1,6 @@
 namespace RoleplayGame
 {
-    public class defenseItem: IDefenseItem
+    public class DefenseItem: IDefenseItem
     {
         public virtual int DefenseValue
         {
