@@ -1,6 +1,7 @@
 using NUnit.Framework;
 
-namespace Test.Library
+
+namespace RoleplayGame
 {
     public class RoleplayGameTests
     {
@@ -13,7 +14,7 @@ namespace Test.Library
         */
         [Test]
         public void TestBlankWizardName() {
-            Wizard wiz = new Wizard();
+            Wizard wiz = new Wizard("Alfredo");
             string newWizardName = "";
 
             bool result = wiz.SetName(newWizardName);
@@ -28,8 +29,8 @@ namespace Test.Library
         */
         [Test]
         public void TestDuplicatedSpell(){
-            SpellBook book = new SpellBook();
-            Spell sp = new Spell("Heal");
+            SpellsBook book = new SpellsBook();
+            Spell sp = new Spell();
 
             bool result = book.AddSpell(sp);
             bool result2 = book.AddSpell(sp);
