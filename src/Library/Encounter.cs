@@ -30,10 +30,7 @@ namespace RoleplayGame
 
                         // enemy.Attack(h);
                     }   
-                }
-
-                // Si hay menos héroes (N) que enemigos (M)
-                if (this.Heroes.Count < this.Enemies.Count) {
+                } else if (this.Heroes.Count < this.Enemies.Count) {
                     int heroeIndex = 0;
                     foreach (Enemy enemy in this.Enemies) {
                         int nextEnemyIndex = this.Enemies.IndexOf(enemy) + 1;
