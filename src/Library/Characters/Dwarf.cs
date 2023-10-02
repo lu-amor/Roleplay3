@@ -1,11 +1,8 @@
 using System.Collections.Generic;
 namespace RoleplayGame
 {
-    public class Dwarf
+    public class Dwarf : Character
     {
-        public Dwarf()
-        {
-            
-        }
+        public Dwarf(string name): base(name) {}
     }
 }

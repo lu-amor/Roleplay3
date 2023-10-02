@@ -1,8 +1,8 @@
 using System.Collections.Generic;
 namespace RoleplayGame
 {
-    public class Knight
+    public class Knight : Character
     {
-        public Knight() {}
+        public Knight(string name) : base(name) {}
     }
 }
