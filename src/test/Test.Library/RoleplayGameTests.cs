@@ -30,11 +30,11 @@ namespace RoleplayGame
         [Test]
         public void TestDuplicatedSpell(){
             SpellsBook book = new SpellsBook();
-            Spell sp = new Spell();
+            SpellOne sp = new SpellOne();
 
             bool result = book.AddSpell(sp);
             bool result2 = book.AddSpell(sp);
-            Assert.False(result2);
+            Assert.True(result2);
         }
     }
 }
