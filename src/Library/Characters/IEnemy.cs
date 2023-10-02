@@ -7,6 +7,7 @@ namespace RoleplayGame
 {
     public interface IEnemy
     {
-        
+        int VictoryPoints {get; set;}
+        void SetVictoryPoints(int points);
     }
 }
