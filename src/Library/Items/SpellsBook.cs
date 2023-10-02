@@ -32,14 +32,16 @@ namespace RoleplayGame
             }
         }
 
-        public void AddSpell(ISpell spell)
+        public bool AddSpell(ISpell spell)
         {
             this.spells.Add(spell);
+            return true;
         }
 
-        public void RemoveSpell(ISpell spell)
+        public bool RemoveSpell(ISpell spell)
         {
             this.spells.Remove(spell);
+            return false; 
         }
     }
 }

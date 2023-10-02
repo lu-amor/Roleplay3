@@ -5,7 +5,13 @@ namespace RoleplayGame
     {
         private List<IMagicalItem> magicalItems = new List<IMagicalItem>();
         private int value;
-
+        public bool SetName(string name) {
+            if (!string.IsNullOrEmpty(name)) {
+                this.Name = name;
+                return true;
+            } 
+            else { return false; }
+        }
         public Wizard(string name): base(name)
         {
             this.AddItem(new Staff());
