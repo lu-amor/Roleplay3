@@ -9,5 +9,7 @@ namespace RoleplayGame
     {
         int VictoryPoints {get; set;}
         void SetVictoryPoints(int points);
+        
+        int GetVictoryPoints();
     }
 }
