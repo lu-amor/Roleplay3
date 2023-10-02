@@ -2,8 +2,12 @@ using System.Collections.Generic;
 using System.Collections.Generic;
 namespace RoleplayGame
 {
-    public class Dwarf : Character
+    public class IHeroe
+        public interface IEnemy
     {
-        public Dwarf(string name): base(name) {}
+        int VictoryPoints {get; set;}
+        void SetVictoryPoints(int points);
+        
+        int GetVictoryPoints();
     }
 }

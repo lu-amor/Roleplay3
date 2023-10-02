@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace RoleplayGame
 {
-    public interface IEnemy
+    public interface IEnemygit 
     {
         int VictoryPoints {get; set;}
         void SetVictoryPoints(int points);
