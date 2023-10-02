@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 namespace RoleplayGame
 {
-    public class Wizard: Character, IMagicCharacter
+    public class Wizard: Heroe, IMagicCharacter
     {
         private List<IMagicalItem> magicalItems = new List<IMagicalItem>();
         private int value;
