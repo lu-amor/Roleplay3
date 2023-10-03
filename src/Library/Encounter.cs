@@ -21,28 +21,52 @@ namespace RoleplayGame
         }
 
         public void DoEncounter() {
-            if ((this.Heroes.Count > 0) && (this.Enemies.Count > 0)) {
-                // Si hay más de un enemigo y más de un héroe
-                if ((this.Heroes.Count > 1) && (this.Enemies.Count > 1)) {
-                    foreach (Enemy enemy in this.Enemies) {
-                        int enemyIndex = this.Enemies.IndexOf(enemy);
-                        Heroe h = this.Heroes[enemyIndex];
+            while (true){
+                if ((this.Heroes.Count > 0) && (this.Enemies.Count > 0)) {
+                    // Si hay más de un enemigo y más de un héroe
+                    if ((this.Heroes.Count > 1) && (this.Enemies.Count > 1)) {
+                        foreach (Enemy enemy in this.Enemies) {
+                            int enemyIndex = this.Enemies.IndexOf(enemy);
+                            Heroe h = this.Heroes[enemyIndex];
 
-                        // enemy.Attack(h);
-                    }   
-                } else if (this.Heroes.Count < this.Enemies.Count) {
-                    int heroeIndex = 0;
-                    foreach (Enemy enemy in this.Enemies) {
-                        int nextEnemyIndex = this.Enemies.IndexOf(enemy) + 1;
-                        Enemy nextEnemy = this.Enemies[nextEnemyIndex];
+                            // enemy.Attack(h);
+                        }   
+                    } else if (this.Heroes.Count < this.Enemies.Count) {
+                        int heroeIndex = 0;
+                        foreach (Enemy enemy in this.Enemies) {
+                            int nextEnemyIndex = this.Enemies.IndexOf(enemy) + 1;
+                            Enemy nextEnemy = this.Enemies[nextEnemyIndex];
 
-                        Heroe h = this.Heroes[heroeIndex];
-                        // enemy.Attack(h)
+                            Heroe h = this.Heroes[heroeIndex];
+                            // enemy.Attack(h)
 
-                        heroeIndex += 1;
+                            heroeIndex += 1;
+                        }
                     }
-                }
-            } else { /* Se necesita minimo un heroe y un enemy para arrancar */ }
+                    
+                    if ((this.Heroes.Count > 0) && (this.Enemies.Count > 0)) {
+                    if ((this.Heroes.Count > 1) && (this.Enemies.Count > 1)) {
+                        foreach (Heroe heroe in this.Heroes) {
+                            int heroeIndex = this.Heroes.IndexOf(heroe);
+                            Enemy e = this.Enemies[heroeIndex];
+
+                            // heroe.Attack(e);
+                        }   
+                    } else if (this.Enemies.Count < this.Heroes.Count) {
+                        int enemyIndex = 0;
+                        foreach (Heroe heroe in this.Heroes) {
+                            int nextHeroeIndex = this.Heroes.IndexOf(heroe) + 1;
+                            Heroe nextHeroe = this.Heroes[nextHeroeIndex];
+
+                            Enemy e = this.Enemies[enemyIndex];
+                            // enemy.Attack(h)
+
+                            enemyIndex += 1;
+                        }
+                    }
+                } else { /* Se necesita minimo un heroe y un enemy para arrancar */ }
+            }
         }
     }
+}
 }
