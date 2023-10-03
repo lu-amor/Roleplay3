@@ -15,8 +15,8 @@ namespace RoleplayGame
         public int GetVictoryPoints() {
             return this.VictoryPoints;
         }
+        
         protected int health = 100;
-
         protected List<IItem> items = new List<IItem>();
 
         public Enemy(string name)
