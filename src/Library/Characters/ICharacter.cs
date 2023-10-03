@@ -17,5 +17,7 @@ namespace RoleplayGame
         void Cure();
 
         void ReceiveAttack(int power);
+
+        void Attack(ICharacter target);
     }
 }

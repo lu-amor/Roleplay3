@@ -92,5 +92,9 @@ namespace RoleplayGame
         {
             this.items.Remove(item);
         }
+
+        public void Attack(ICharacter target) {
+            
+        }
     }
 }
