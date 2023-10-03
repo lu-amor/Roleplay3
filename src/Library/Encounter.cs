@@ -21,7 +21,8 @@ namespace RoleplayGame
         }
 
         public void DoEncounter() {
-            while (true){
+            bool battleStatus = true;
+            while (battleStatus){
                 if ((this.Heroes.Count > 0) && (this.Enemies.Count > 0)) {
                     // Si hay más de un enemigo y más de un héroe
                     if ((this.Heroes.Count > 1) && (this.Enemies.Count > 1)) {
@@ -69,6 +70,8 @@ namespace RoleplayGame
                         }
                     }
                 } else { /* Se necesita minimo un heroe y un enemy para arrancar */ }
+
+                battleStatus = false;
             }
         }
     }
