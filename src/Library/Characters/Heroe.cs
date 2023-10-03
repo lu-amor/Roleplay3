@@ -90,7 +90,7 @@ namespace RoleplayGame
         }
 
         public void Attack(ICharacter target) {
-            
+            target.ReceiveAttack(this.AttackValue);
         }
     }
 }
