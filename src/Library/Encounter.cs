@@ -50,25 +50,25 @@ namespace RoleplayGame
                         }
                     }
                     if ((this.Heroes.Count > 0) && (this.Enemies.Count > 0)) {
-                    if ((this.Heroes.Count > 1) && (this.Enemies.Count > 1)) {
-                        foreach (Heroe heroe in this.Heroes) {
-                            int heroeIndex = this.Heroes.IndexOf(heroe);
-                            Enemy e = this.Enemies[heroeIndex];
+                        if ((this.Heroes.Count > 1) && (this.Enemies.Count > 1)) {
+                            foreach (Heroe heroe in this.Heroes) {
+                                int heroeIndex = this.Heroes.IndexOf(heroe);
+                                Enemy e = this.Enemies[heroeIndex];
 
-                            // heroe.Attack(e);
-                        }   
-                    } else if (this.Enemies.Count < this.Heroes.Count) {
-                        int enemyIndex = 0;
-                        foreach (Heroe heroe in this.Heroes) {
-                            int nextHeroeIndex = this.Heroes.IndexOf(heroe) + 1;
-                            Heroe nextHeroe = this.Heroes[nextHeroeIndex];
+                                // heroe.Attack(e);
+                            }   
+                        } else if (this.Enemies.Count < this.Heroes.Count) {
+                            int enemyIndex = 0;
+                            foreach (Heroe heroe in this.Heroes) {
+                                int nextHeroeIndex = this.Heroes.IndexOf(heroe) + 1;
+                                Heroe nextHeroe = this.Heroes[nextHeroeIndex];
 
-                            Enemy e = this.Enemies[enemyIndex];
-                            // enemy.Attack(h)
+                                Enemy e = this.Enemies[enemyIndex];
+                                // enemy.Attack(h)
 
-                            enemyIndex += 1;
+                                enemyIndex += 1;
+                            }
                         }
-                    }
                 } else { /* Se necesita minimo un heroe y un enemy para arrancar */ }
 
                 battleStatus = false;
