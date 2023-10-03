@@ -30,7 +30,7 @@ namespace RoleplayGame
                             int enemyIndex = this.Enemies.IndexOf(enemy);
                             Heroe h = this.Heroes[enemyIndex];
 
-                            // enemy.Attack(h);
+                            enemy.Attack(h);
                         }   
                     } else if (this.Heroes.Count < this.Enemies.Count) {
                         int heroeIndex = 0;
@@ -39,7 +39,7 @@ namespace RoleplayGame
                             Enemy nextEnemy = this.Enemies[nextEnemyIndex];
 
                             Heroe h = this.Heroes[heroeIndex];
-                            // enemy.Attack(h)
+                            enemy.Attack(h);
 
                             heroeIndex += 1;
                         }
@@ -55,7 +55,7 @@ namespace RoleplayGame
                                 int heroeIndex = this.Heroes.IndexOf(heroe);
                                 Enemy e = this.Enemies[heroeIndex];
 
-                                // heroe.Attack(e);
+                                heroe.Attack(e);
                             }   
                         } else if (this.Enemies.Count < this.Heroes.Count) {
                             int enemyIndex = 0;
@@ -64,8 +64,7 @@ namespace RoleplayGame
                                 Heroe nextHeroe = this.Heroes[nextHeroeIndex];
 
                                 Enemy e = this.Enemies[enemyIndex];
-                                // enemy.Attack(h)
-
+                                heroe.Attack(e);
                                 enemyIndex += 1;
                             }
                         }
