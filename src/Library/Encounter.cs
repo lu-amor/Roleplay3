@@ -43,7 +43,11 @@ namespace RoleplayGame
                             heroeIndex += 1;
                         }
                     }
-                    
+                    foreach (Heroe heroe in Heroes){
+                        if (heroe.Health == 0){
+                            Heroes.Remove(heroe);
+                        }
+                    }
                     if ((this.Heroes.Count > 0) && (this.Enemies.Count > 0)) {
                     if ((this.Heroes.Count > 1) && (this.Enemies.Count > 1)) {
                         foreach (Heroe heroe in this.Heroes) {
