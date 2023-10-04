@@ -8,8 +8,8 @@ namespace RoleplayGame
 {
     public class Encounter
     {
-        private List<Heroe> Heroes;
-        private List<Enemy> Enemies;
+        public List<Heroe> Heroes;
+        public List<Enemy> Enemies;
 
         public Encounter() {}
 
