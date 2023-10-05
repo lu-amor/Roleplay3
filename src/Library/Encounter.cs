@@ -29,8 +29,10 @@ namespace RoleplayGame
             if (!CheckFighters()) { return; }
 
             bool battleStatus = true;
+            int roundCount = 1;
             while (battleStatus){
                 if ((this.Heroes.Count > 0) && (this.Enemies.Count > 0)) {
+                    Console.WriteLine($"<--- ROUND {roundCount} --->");
                     // Si hay más de un enemigo y más de un héroe
                     if ((this.Heroes.Count > 1) && (this.Enemies.Count > 1)) {
                         foreach (Enemy enemy in this.Enemies) {
@@ -76,6 +78,11 @@ namespace RoleplayGame
                             }
                         }
                 } else { battleStatus = false; }
+
+                Console.WriteLine("\n");
+                roundCount++;
+                
+                if ((!this.Heroes.Any() && this.Enemies.Any()) || (this.Heroes.Any() && !this.Enemies.Any())) { battleStatus = false; }
             }
         }
     }
