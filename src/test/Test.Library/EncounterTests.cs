@@ -10,7 +10,7 @@ namespace RoleplayGame
 
             Encounter enc = new Encounter();
             enc.AddEnemy(enemy);
-            // enc.AddHeroe(hero);
+            enc.AddHeroe(hero);
 
             bool statusEncounter = enc.CheckFighters();
             Assert.False(statusEncounter);

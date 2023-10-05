@@ -21,7 +21,7 @@ namespace RoleplayGame
         }
 
         public bool CheckFighters() {
-            if (!this.Heroes.Any() && !this.Enemies.Any()) { return true; }
+            if (this.Heroes.Any() && this.Enemies.Any()) { return true; }
             return false;
         }
 
