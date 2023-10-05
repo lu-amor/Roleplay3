@@ -94,6 +94,7 @@ namespace RoleplayGame
         }
 
         public void Attack(ICharacter target) {
+            Console.WriteLine($"{this.Name} attacks {target.Name} with ⚔️ {this.AttackValue}");
             target.ReceiveAttack(this.AttackValue);
         }
     }
