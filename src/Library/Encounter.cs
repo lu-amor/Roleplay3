@@ -20,7 +20,14 @@ namespace RoleplayGame
             this.Enemies.Add(e);
         }
 
+        public bool CheckFighters() {
+            if (!this.Heroes.Any() && !this.Enemies.Any()) { return true; }
+            return false;
+        }
+
         public void DoEncounter() {
+            if (CheckFighters()) { return; }
+
             bool battleStatus = true;
             while (battleStatus){
                 if ((this.Heroes.Count > 0) && (this.Enemies.Count > 0)) {
