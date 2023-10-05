@@ -27,13 +27,13 @@ namespace RoleplayGame
 
         private void CheckAliveness() {
             foreach (Heroe heroe in this.Heroes.ToList()){
-                Console.WriteLine($"{heroe.Name} {heroe.Health}");
+                //Console.WriteLine($"{heroe.Name} {heroe.Health}");
                 if (heroe.Health <= 0) {
                     Heroes.Remove(heroe);
                 }
             }
             foreach (Enemy enemy in this.Enemies.ToList()){
-                Console.WriteLine($"{enemy.Name} {enemy.Health}");
+                //Console.WriteLine($"{enemy.Name} {enemy.Health}");
                 if (enemy.Health <= 0) {
                     Enemies.Remove(enemy);
                 }
@@ -82,12 +82,14 @@ namespace RoleplayGame
                         } else if (this.Enemies.Count < this.Heroes.Count) {
                             int enemyIndex = 0;
                             foreach (Heroe heroe in this.Heroes) {
-                                int nextHeroeIndex = this.Heroes.IndexOf(heroe) + 1;
-                                Heroe nextHeroe = this.Heroes[nextHeroeIndex];
+                                if (enemyIndex < this.Heroes.Count - 1) {
+                                    int nextHeroeIndex = this.Heroes.IndexOf(heroe) + 1;
+                                    Heroe nextHeroe = this.Heroes[nextHeroeIndex];
 
-                                Enemy e = this.Enemies[enemyIndex];
-                                heroe.Attack(e);
-                                enemyIndex += 1;
+                                    Enemy e = this.Enemies[enemyIndex];
+                                    heroe.Attack(e);
+                                    enemyIndex += 1;
+                                }
                             }
                         }
                     } else { battleStatus = false; }
