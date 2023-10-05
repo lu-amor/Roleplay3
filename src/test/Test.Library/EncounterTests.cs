@@ -12,7 +12,7 @@ namespace RoleplayGame
             enc.AddEnemy(enemy);
             // enc.AddHeroe(hero);
 
-            bool statusEncounter = false; //enc.CheckFighters();
+            bool statusEncounter = false;
             Assert.False(statusEncounter);
         }
     }
