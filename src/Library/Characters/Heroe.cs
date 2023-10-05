@@ -71,6 +71,7 @@ namespace RoleplayGame
         {
             if (this.DefenseValue < power)
             {
+                Console.WriteLine($"{this.Name} now has ❤️ {this.Health}");
                 this.Health -= power - this.DefenseValue;
             }
         }
