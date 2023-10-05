@@ -26,8 +26,6 @@ namespace RoleplayGame
         }
 
         public void DoEncounter() {
-            if (CheckFighters()) { return; }
-
             bool battleStatus = true;
             while (battleStatus){
                 if ((this.Heroes.Count > 0) && (this.Enemies.Count > 0)) {
