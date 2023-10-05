@@ -26,7 +26,7 @@ namespace RoleplayGame
         }
 
         public void DoEncounter() {
-            if (CheckFighters()) { return; }
+            if (!CheckFighters()) { return; }
 
             bool battleStatus = true;
             while (battleStatus){
