@@ -75,9 +75,7 @@ namespace RoleplayGame
                                 enemyIndex += 1;
                             }
                         }
-                } else { /* Se necesita minimo un heroe y un enemy para arrancar */ }
-
-                battleStatus = false;
+                } else { battleStatus = false; }
             }
         }
     }
