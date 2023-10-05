@@ -1,4 +1,4 @@
 namespace RoleplayGame
 {
-    public class EncounterTests : Encounter {}
+    public class EncounterTests {}
 }
