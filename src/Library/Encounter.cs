@@ -25,12 +25,27 @@ namespace RoleplayGame
             return false;
         }
 
+        private void CheckAliveness() {
+            foreach (Heroe heroe in Heroes){
+                if (heroe.Health <= 0) {
+                    Heroes.Remove(heroe);
+                }
+            }
+            foreach (Heroe enemy in Heroes){
+                if (enemy.Health <= 0) {
+                    Heroes.Remove(enemy);
+                }
+            }
+        }
+
         public void DoEncounter() {
             if (!CheckFighters()) { return; }
 
             bool battleStatus = true;
             int roundCount = 1;
             while (battleStatus){
+                CheckAliveness();
+
                 if ((this.Heroes.Count > 0) && (this.Enemies.Count > 0)) {
                     Console.WriteLine($"<--- ROUND {roundCount} --->");
                     // Si hay más de un enemigo y más de un héroe
@@ -53,11 +68,7 @@ namespace RoleplayGame
                             heroeIndex += 1;
                         }
                     }
-                    foreach (Heroe heroe in Heroes){
-                        if (heroe.Health == 0){
-                            Heroes.Remove(heroe);
-                        }
-                    }
+
                     if ((this.Heroes.Count > 0) && (this.Enemies.Count > 0)) {
                         if ((this.Heroes.Count > 1) && (this.Enemies.Count > 1)) {
                             foreach (Heroe heroe in this.Heroes) {
@@ -77,14 +88,14 @@ namespace RoleplayGame
                                 enemyIndex += 1;
                             }
                         }
-                } else { battleStatus = false; }
+                    } else { battleStatus = false; }
 
-                Console.WriteLine("\n");
-                roundCount++;
-                
-                if ((!this.Heroes.Any() && this.Enemies.Any()) || (this.Heroes.Any() && !this.Enemies.Any())) { battleStatus = false; }
+                    Console.WriteLine("\n");
+                    roundCount++;
+
+                    if ((!this.Heroes.Any() && this.Enemies.Any()) || (this.Heroes.Any() && !this.Enemies.Any())) { battleStatus = false; }
+                }
             }
         }
     }
-}
 }
