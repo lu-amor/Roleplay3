@@ -26,14 +26,16 @@ namespace RoleplayGame
         }
 
         private void CheckAliveness() {
-            foreach (Heroe heroe in Heroes){
+            foreach (Heroe heroe in this.Heroes.ToList()){
+                Console.WriteLine($"{heroe.Name} {heroe.Health}");
                 if (heroe.Health <= 0) {
                     Heroes.Remove(heroe);
                 }
             }
-            foreach (Heroe enemy in Heroes){
+            foreach (Enemy enemy in this.Enemies.ToList()){
+                Console.WriteLine($"{enemy.Name} {enemy.Health}");
                 if (enemy.Health <= 0) {
-                    Heroes.Remove(enemy);
+                    Enemies.Remove(enemy);
                 }
             }
         }
