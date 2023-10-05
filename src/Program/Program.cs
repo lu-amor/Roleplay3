@@ -5,27 +5,33 @@ namespace Program
 {
     class Program
     {
-        static void Main(string[] args)
-        {
-            SpellsBook book = new SpellsBook();
-            book.AddSpell(new SpellOne());
-            book.AddSpell(new SpellOne());
+        static void Main(string[] args) {
+            Console.Clear();
+
+            SpellsBook sb = new SpellsBook();
+            sb.AddSpell(new SpellOne());
+            sb.AddSpell(new SpellOne());
 
             Wizard gandalf = new Wizard("Gandalf");
-            gandalf.AddItem(book);
+            gandalf.AddItem(sb);
 
             Dwarf gimli = new Dwarf("Gimli");
 
-            Console.WriteLine($"Gimli has ❤️ {gimli.Health}");
-            Console.WriteLine($"Gandalf attacks Gimli with ⚔️ {gandalf.AttackValue}");
+            Giant giant = new Giant("Ryan the Giant");
+            Goblin goblin = new Goblin("Bob");
 
-            gimli.ReceiveAttack(gandalf.AttackValue);
+            Encounter enc = new Encounter();
+            
+            enc.AddHeroe(gandalf);
+            enc.AddHeroe(gimli);
+            enc.AddEnemy(giant);
+            enc.AddEnemy(goblin);
 
-            Console.WriteLine($"Gimli has ❤️ {gimli.Health}");
-
-            gimli.Cure();
-
-            Console.WriteLine($"Someone cured Gimli. Gimli now has ❤️ {gimli.Health}");
+            bool readyToFight = enc.CheckFighters();
+            if (readyToFight) {
+                Console.WriteLine($"Encounter has started!\n");
+                enc.DoEncounter();
+            } else { Console.WriteLine("Encounter has could not be started..."); }
         }
     }
 }

@@ -25,12 +25,31 @@ namespace RoleplayGame
             return false;
         }
 
+        private void CheckAliveness() {
+            foreach (Heroe heroe in this.Heroes.ToList()){
+                //Console.WriteLine($"{heroe.Name} {heroe.Health}");
+                if (heroe.Health <= 0) {
+                    Heroes.Remove(heroe);
+                }
+            }
+            foreach (Enemy enemy in this.Enemies.ToList()){
+                //Console.WriteLine($"{enemy.Name} {enemy.Health}");
+                if (enemy.Health <= 0) {
+                    Enemies.Remove(enemy);
+                }
+            }
+        }
+
         public void DoEncounter() {
-            if (CheckFighters()) { return; }
+            if (!CheckFighters()) { return; }
 
             bool battleStatus = true;
+            int roundCount = 1;
             while (battleStatus){
+                CheckAliveness();
+
                 if ((this.Heroes.Count > 0) && (this.Enemies.Count > 0)) {
+                    Console.WriteLine($"<--- ROUND {roundCount} --->");
                     // Si hay más de un enemigo y más de un héroe
                     if ((this.Heroes.Count > 1) && (this.Enemies.Count > 1)) {
                         foreach (Enemy enemy in this.Enemies) {
@@ -51,11 +70,7 @@ namespace RoleplayGame
                             heroeIndex += 1;
                         }
                     }
-                    foreach (Heroe heroe in Heroes){
-                        if (heroe.Health == 0){
-                            Heroes.Remove(heroe);
-                        }
-                    }
+
                     if ((this.Heroes.Count > 0) && (this.Enemies.Count > 0)) {
                         if ((this.Heroes.Count > 1) && (this.Enemies.Count > 1)) {
                             foreach (Heroe heroe in this.Heroes) {
@@ -67,19 +82,31 @@ namespace RoleplayGame
                         } else if (this.Enemies.Count < this.Heroes.Count) {
                             int enemyIndex = 0;
                             foreach (Heroe heroe in this.Heroes) {
-                                int nextHeroeIndex = this.Heroes.IndexOf(heroe) + 1;
-                                Heroe nextHeroe = this.Heroes[nextHeroeIndex];
+                                if (enemyIndex < this.Heroes.Count - 1) {
+                                    int nextHeroeIndex = this.Heroes.IndexOf(heroe) + 1;
+                                    Heroe nextHeroe = this.Heroes[nextHeroeIndex];
 
-                                Enemy e = this.Enemies[enemyIndex];
-                                heroe.Attack(e);
-                                enemyIndex += 1;
+                                    Enemy e = this.Enemies[enemyIndex];
+                                    heroe.Attack(e);
+                                    enemyIndex += 1;
+                                }
                             }
                         }
-                } else { /* Se necesita minimo un heroe y un enemy para arrancar */ }
+                    } else { battleStatus = false; }
 
-                battleStatus = false;
+                    Console.WriteLine("\n");
+                    roundCount++;
+                } else {
+                    battleStatus = false;
+                    Console.WriteLine("Encounter finished...");
+                    
+                    if (this.Enemies.Any()) {
+                        Console.WriteLine("Enemies wins the game!");
+                    } else {
+                        Console.WriteLine("Heroes wins the game!");
+                    }
+                }
             }
         }
     }
-}
 }
