@@ -96,8 +96,15 @@ namespace RoleplayGame
 
                     Console.WriteLine("\n");
                     roundCount++;
-
-                    if ((!this.Heroes.Any() && this.Enemies.Any()) || (this.Heroes.Any() && !this.Enemies.Any())) { battleStatus = false; }
+                } else {
+                    battleStatus = false;
+                    Console.WriteLine("Encounter finished...");
+                    
+                    if (this.Enemies.Any()) {
+                        Console.WriteLine("Enemies wins the game!");
+                    } else {
+                        Console.WriteLine("Heroes wins the game!");
+                    }
                 }
             }
         }
