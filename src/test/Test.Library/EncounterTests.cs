@@ -4,7 +4,6 @@ using System.ComponentModel;
 using Microsoft.Win32.SafeHandles;
 using NUnit.Framework;
 
-
 namespace RoleplayGame
 {
     public class EncounterTests

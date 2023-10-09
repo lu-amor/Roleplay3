@@ -75,12 +75,14 @@ namespace RoleplayGame
             if (this.DefenseValue < power)
             {
                 this.Health -= power - this.DefenseValue;
+                Console.WriteLine($"{this.Name} now has ❤️ {this.Health}");
             }
         }
 
         public void Cure()
         {
             this.Health = 100;
+            Console.WriteLine($"Someone cured {this.Name}. {this.Name} now has ❤️ {this.Health}");
         }
 
         public void AddItem(IItem item)
@@ -94,6 +96,7 @@ namespace RoleplayGame
         }
 
         public void Attack(ICharacter target) {
+            Console.WriteLine($"{this.Name} attacks {target.Name} with ⚔️ {this.AttackValue}");
             target.ReceiveAttack(this.AttackValue);
         }
     }
